@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "caption": "Sleepy bubba",
+    "fileName": "/images/20190827_2121.jpg",
+    "timestamp": "27/08/2019 21:21",
+    "tags": [
+      "sleeping",
+      "kitten"
+    ]
+  },
+  {
+    "id": 2,
+    "caption": "Watching bubba",
+    "fileName": "/images/20190821_0619.jpg",
+    "timestamp": "21/08/2019 06:19",
+    "tags": [
+      "bathroom",
+      "kitten"
+    ]
+  }
+]

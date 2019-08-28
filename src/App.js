@@ -1,16 +1,23 @@
 import React from 'react';
-import './App.css';
-import Nav from './Nav.js';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
 import Footer from './Footer.js';
+import Gallery from './Gallery.js';
 import Main from './Main.js';
+import Nav from './Nav.js';
+import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <Nav/>
-      <Main/>
-      <Footer/>
-    </div>
+    <Router>
+      <div className="App">
+        <Nav/>
+        <div className="content">
+          <Route exact path="/" component={Main} />
+          <Route path="/Gallery" component={Gallery} />
+        </div>
+        <Footer/>
+      </div>
+    </Router>
   );
 }
 

@@ -1,0 +1,9 @@
+.gallery-page {
+  flex-grow: 1;
+  margin: 1rem;
+}
+
+.image {
+  height: 30%;
+  width: 30%;
+}
