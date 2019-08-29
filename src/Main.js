@@ -1,21 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
 import './Main.css';
 
 const Main = () => (
   <div className="main">
-    <img src={logo} className="App-logo" alt="logo" />
+    <img  src="./images/20190623_1809.jpg"
+          className="profile"
+          alt="logo" />
     <p>
-      Edit <code>src/App.js</code> and save to reload.
+      Hi I'm Tormund Giantspaw!
     </p>
-    <a
-      className="App-link"
-      href="https://reactjs.org"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Learn React
-    </a>
   </div>
 );
 

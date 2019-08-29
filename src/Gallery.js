@@ -21,7 +21,7 @@ class Gallery extends React.Component {
       <div className="gallery-page">
         <div>
           Gallery
-          <div>
+          <div className="gallery">
             {images}
           </div>
         </div>

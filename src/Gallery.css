@@ -3,7 +3,14 @@
   margin: 1rem;
 }
 
+.gallery {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  flex: 1;
+}
+
 .image {
-  height: 30%;
-  width: 30%;
+  height: auto;
+  width: 50%;
 }
