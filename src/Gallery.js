@@ -1,6 +1,7 @@
 import React from 'react';
 import './Gallery.css';
 import data from './data/data.json';
+import GalleryCard from './GalleryCard.js';
 
 class Gallery extends React.Component {
 
@@ -11,9 +12,8 @@ class Gallery extends React.Component {
   render() {
 
     const images = data.map((item) =>
-      <div>
-        <img src={item.fileName} className="image"/>
-        <div>{item.caption}</div>
+      <div key={item.id} className="gallery-card">
+        <GalleryCard item={item}/>
       </div>
     );
 
