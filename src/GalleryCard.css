@@ -9,3 +9,17 @@
   height: auto;
   width: 100%;
 }
+
+.gallery-tags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-tag a {
+  color: #e65c00;
+  font-style: italic;
+  padding: 2px;
+}
