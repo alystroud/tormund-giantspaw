@@ -20,7 +20,6 @@ class Gallery extends React.Component {
     return (
       <div className="gallery-page">
         <div>
-          Gallery
           <div className="gallery">
             {images}
           </div>
