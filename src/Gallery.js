@@ -12,7 +12,7 @@ class Gallery extends React.Component {
   render() {
 
     const images = data.map((item) =>
-      <div key={item.id} className="gallery-card">
+      <div key={item.id} className="gallery-card col-sm-12 col-xs-12 col-md-4 col-lg-3">
         <GalleryCard item={item}/>
       </div>
     );
@@ -20,7 +20,7 @@ class Gallery extends React.Component {
     return (
       <div className="gallery-page">
         <div>
-          <div className="gallery">
+          <div className="row">
             {images}
           </div>
         </div>

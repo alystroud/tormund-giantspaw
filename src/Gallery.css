@@ -1,14 +1,10 @@
 .gallery-page {
-  height: 100%;
   padding: 1rem;
   background-color: #bebebe;
-}
-
-.gallery {
+  padding-bottom: 50px;
   display: flex;
-  flex-direction: row;
-  height: 100%;
   flex: 1;
+  min-height: 100%;
 }
 
 .gallery-card {

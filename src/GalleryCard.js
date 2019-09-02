@@ -1,7 +1,6 @@
 import React from 'react';
 import './GalleryCard.css';
 import parse from 'date-fns/parse';
-import format from 'date-fns/format';
 import differenceInMonths from 'date-fns/differenceInMonths';
 import differenceInWeeks from 'date-fns/differenceInWeeks';
 
@@ -34,8 +33,8 @@ class GalleryCard extends React.Component {
         <div>{this.state.caption}</div>
         <div className="gallery-tags">{tags}</div>
         <div>
-        {(months != 0) ? (months + (months == 1 ? ' month' : ' months')) :
-            (weeks + (weeks == 1 ? ' week' : ' weeks'))}</div>
+        {(months !== 0) ? (months + (months === 1 ? ' month' : ' months')) :
+            (weeks + (weeks === 1 ? ' week' : ' weeks'))}</div>
       </div>
     );
   }
