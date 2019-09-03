@@ -15,10 +15,10 @@ class Gallery extends React.Component {
     this.onFilterClick = this.onFilterClick.bind(this);
   }
 
-  onFilterClick(value) {
-    alert("hello");
+  onFilterClick() {
+    var newFilterState = !this.state.filterOpen;
     this.setState({
-      filterOpen: value
+      filterOpen: newFilterState
     });
   }
 
@@ -37,7 +37,7 @@ class Gallery extends React.Component {
     return (
       <div className="gallery-page">
       <Filters filterOpen={this.state.filterOpen}
-               filterClick={this.onFilterClick}/>
+               onClick={this.onFilterClick}/>
         <div className="gallery-body">
           <div className="row">
             {images}
