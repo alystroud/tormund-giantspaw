@@ -3,7 +3,7 @@ import './Footer.css';
 
 const Footer = () => (
   <div className="footer">
-    <p>Created by <a href="https://www.codehippo.co.uk">Aly Stroud</a></p>
+    <p>Created by <a href="https://www.codehippo.co.uk">Aly Stroud ❤</a></p>
   </div>
 );
 
