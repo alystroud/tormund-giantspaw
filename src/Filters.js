@@ -1,5 +1,6 @@
 import React from 'react';
 import './Filters.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Filters extends React.Component {
 
@@ -14,8 +15,14 @@ class Filters extends React.Component {
     return (
       <div className="filters" onClick={this.props.onClick}>
         {this.props.filterOpen ?
-          <div className="filters-open"></div> :
-          <div className="filters-closed">Filters</div>
+          <div className="filters-open">
+            <FontAwesomeIcon className="caret" icon="caret-down"/>
+            <div>Filters</div>
+          </div> :
+          <div className="filters-closed">
+            <FontAwesomeIcon className="caret" icon="caret-right"/>
+            <div>Filters</div>
+          </div>
         }
       </div>
     );

@@ -29,7 +29,8 @@ class Gallery extends React.Component {
               (parse(a.timestamp, 'dd/MM/yyyy HH:mm', new Date()))
     });
     const images = visibleData.map((item) =>
-      <div key={item.id} className="gallery-card col-sm-12 col-xs-12 col-md-4 col-lg-3">
+      <div key={item.id}
+           className="gallery-card col-sm-12 col-xs-12 col-md-4 col-lg-3">
         <GalleryCard item={item}/>
       </div>
     );
