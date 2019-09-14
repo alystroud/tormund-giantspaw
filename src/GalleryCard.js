@@ -1,8 +1,10 @@
 import React from 'react';
 import './GalleryCard.css';
 import parse from 'date-fns/parse';
+import differenceInYears from 'date-fns/differenceInYears';
 import differenceInMonths from 'date-fns/differenceInMonths';
 import differenceInWeeks from 'date-fns/differenceInWeeks';
+import differenceInDays from 'date-fns/differenceInDays';
 
 class GalleryCard extends React.Component {
   constructor(props){
@@ -23,9 +25,12 @@ class GalleryCard extends React.Component {
     );
 
     const date = parse(this.state.timestamp, 'dd/MM/yyyy HH:mm', new Date());
-    const birthday = parse('30/03/2019', 'dd/MM/yyyy', new Date());
+    const birthday = parse('30/03/2019 00:00', 'dd/MM/yyyy HH:mm', new Date());
+    const years = differenceInYears(date, birthday);
     const months = differenceInMonths(date, birthday);
     const weeks = differenceInWeeks(date, birthday);
+    const totalDays = differenceInDays(date, birthday);
+    const remainderDays = totalDays - (weeks * 7);
 
     return (
       <div className="card">
@@ -33,8 +38,9 @@ class GalleryCard extends React.Component {
         <div>{this.state.caption}</div>
         <div className="gallery-tags">{tags}</div>
         <div>
-        {(months !== 0) ? (months + (months === 1 ? ' month' : ' months')) :
-            (weeks + (weeks === 1 ? ' week' : ' weeks'))}</div>
+        {(months !== 0 && months !== 1) ? (months + ' months') :
+            (weeks + (weeks === 1 ? ' week ' : ' weeks ')) +
+            remainderDays + ((remainderDays === 1) ? ' day' : ' days')}</div>
       </div>
     );
   }

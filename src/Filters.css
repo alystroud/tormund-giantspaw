@@ -59,8 +59,13 @@
   margin-left: 70px;
 }
 
-.filters-hashtag textarea {
+.filters-hashtag input {
   height: 22px;
   resize: none;
   margin-left: 5px;
+}
+
+.filters-submit {
+  margin-left: 70px;
+  margin-top: 10px;
 }

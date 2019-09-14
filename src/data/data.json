@@ -38,5 +38,45 @@
       "staring",
       "kitten"
     ]
+  },
+  {
+    "id": 5,
+    "caption": "Hiding",
+    "fileName": "/images/20190606_172707.jpg",
+    "timestamp": "06/06/2019 17:27",
+    "tags": [
+      "hiding",
+      "blanket",
+      "kitten"
+    ]
+  },
+  {
+    "id": 6,
+    "caption": "Snoozy baby",
+    "fileName": "/images/20190914_131649.jpg",
+    "timestamp": "14/09/2019 13:16",
+    "tags": [
+      "sleeping"
+    ]
+  },
+  {
+    "id": 7,
+    "caption": "Oh Hello!",
+    "fileName": "/images/20190524_195151.jpg",
+    "timestamp": "24/05/2019 19:15",
+    "tags": [
+      "kitten",
+      "blueEyes"
+    ]
+  },
+  {
+    "id": 8,
+    "caption": "If I fits, I sits",
+    "fileName": "/images/20190914_134214.jpg",
+    "timestamp": "14/09/2019 13:42",
+    "tags": [
+      "kitten",
+      "basket"
+    ]
   }
 ]
