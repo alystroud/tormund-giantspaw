@@ -10,7 +10,9 @@ class Gallery extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      filterOpen: false
+      filterOpen: false,
+      filterString: "",
+      filterAge: ""
     };
     this.onFilterClick = this.onFilterClick.bind(this);
   }
