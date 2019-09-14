@@ -8,12 +8,13 @@ class Filters extends React.Component {
     super(props);
     this.state = {
       filterOpen: this.props.filterOpen,
-      hashtag: "",
-      age: ""
+      hashtag: this.props.filterString,
+      age: this.props.filterAge
     };
     this.onSearchBtnClick = this.onSearchBtnClick.bind(this);
     this.onHashtagChange = this.onHashtagChange.bind(this);
     this.onAgeChange = this.onAgeChange.bind(this);
+    this.onClearBtnClick = this.onClearBtnClick.bind(this);
   }
 
   render() {
@@ -41,7 +42,9 @@ class Filters extends React.Component {
                        text={this.state.hashtag}/>
               </div>
             </div>
-            <div className="filters-submit">
+            <div className="filters-buttons">
+              <button type="button"
+                      onClick={this.onClearBtnClick}>Clear All</button>
               <button type="button"
                       onClick={this.onSearchBtnClick}>Search</button>
             </div>
@@ -57,6 +60,14 @@ class Filters extends React.Component {
 
   onSearchBtnClick(ev) {
     this.props.onFilterChange(this.state.hashtag, this.state.age);
+  }
+
+  onClearBtnClick(ev) {
+    this.props.onFilterChange("", "");
+    this.setState({
+      hashtag: "",
+      age: ""
+    });
   }
 
   onHashtagChange(ev) {

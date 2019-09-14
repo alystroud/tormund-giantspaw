@@ -31,9 +31,18 @@ class Gallery extends React.Component {
       return (parse(b.timestamp, 'dd/MM/yyyy HH:mm', new Date())) -
               (parse(a.timestamp, 'dd/MM/yyyy HH:mm', new Date()))
     });
+
     if(this.state.filterString !== "") {
-      visibleData = visibleData.filter(item =>
-        item.tags.includes(this.state.filterString));
+      visibleData = visibleData.filter(item => {
+        for(var i = 0; i < item.tags.length; i++){
+          if((item.tags[i].toLowerCase()).indexOf(
+              this.state.filterString.toLowerCase()) !== -1){
+            return true;
+          }
+        }
+        return false;
+        //return item.tags.includes(this.state.filterString);
+      });
     }
     const images = visibleData.map((item) =>
       <div key={item.id}
@@ -46,6 +55,8 @@ class Gallery extends React.Component {
       <div className="gallery-page">
       <Filters filterOpen={this.state.filterOpen}
                onFilterChange={this.onFilterChange}
+               filterString={this.state.filterString}
+               filterAge={this.state.filterAge}
                onClick={this.onFilterClick}/>
         <div className="gallery-body">
           <div className="row">

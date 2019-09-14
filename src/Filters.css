@@ -65,7 +65,11 @@
   margin-left: 5px;
 }
 
-.filters-submit {
+.filters-buttons {
   margin-left: 70px;
   margin-top: 10px;
+}
+
+.filters-buttons button {
+  margin-right: 5px;
 }
