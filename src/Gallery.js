@@ -24,13 +24,6 @@ class Gallery extends React.Component {
   }
 
   render() {
-    const ageList = [];
-    data.forEach((a) => {
-      a.age = this.getAgeFromTimestamp(a.timestamp);
-      if (!ageList.includes(a.age)) {
-        ageList.push(a.age);
-      }
-    });
     let visibleData = data.sort(function(a, b){
       return (parse(b.timestamp, 'dd/MM/yyyy HH:mm', new Date())) -
               (parse(a.timestamp, 'dd/MM/yyyy HH:mm', new Date()))
@@ -52,6 +45,13 @@ class Gallery extends React.Component {
         return this.state.filterAge === item.age;
       });
     }
+    const ageList = [];
+    visibleData.forEach((a) => {
+      a.age = this.getAgeFromTimestamp(a.timestamp);
+      if (!ageList.includes(a.age)) {
+        ageList.push(a.age);
+      }
+    });
     const images = visibleData.map((item) =>
       <div key={item.id}
            className="gallery-card col-sm-12 col-xs-12 col-md-4 col-lg-3">

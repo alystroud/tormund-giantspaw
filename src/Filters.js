@@ -30,7 +30,7 @@ class Filters extends React.Component {
             <div className="filters-filters">
               <div className="filters-age">
                 <div>Age: </div>
-                <select selected={this.state.age}
+                <select value={this.state.age}
                         onChange={this.onAgeChange}>
                   <option key="" label=""></option>
                   {this.state.ageOptions.map((age) =>
@@ -66,10 +66,6 @@ class Filters extends React.Component {
   }
 
   onClearBtnClick(ev) {
-    this.setState({
-      hashtag: "",
-      age: ""
-    });
     this.props.onFilterChange("", "");
   }
 
