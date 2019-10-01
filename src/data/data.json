@@ -78,5 +78,15 @@
       "kitten",
       "basket"
     ]
+  },
+  {
+    "id": 9,
+    "caption": "Pillow hogger",
+    "fileName": "/images/20190914_130545.jpg",
+    "timestamp": "14/09/2019 13:05",
+    "tags": [
+      "kitten",
+      "sleeping"
+    ]
   }
 ]

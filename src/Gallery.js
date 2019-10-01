@@ -1,9 +1,13 @@
 import React from 'react';
 import './Gallery.css';
-import parse from 'date-fns/parse';
 import data from './data/data.json';
 import GalleryCard from './GalleryCard.js';
 import Filters from './Filters.js';
+import parse from 'date-fns/parse';
+import differenceInYears from 'date-fns/differenceInYears';
+import differenceInMonths from 'date-fns/differenceInMonths';
+import differenceInWeeks from 'date-fns/differenceInWeeks';
+import differenceInDays from 'date-fns/differenceInDays';
 
 class Gallery extends React.Component {
 
@@ -14,19 +18,19 @@ class Gallery extends React.Component {
       filterString: "",
       filterAge: ""
     };
+    this.getAgeFromTimestamp = this.getAgeFromTimestamp.bind(this);
     this.onFilterClick = this.onFilterClick.bind(this);
     this.onFilterChange = this.onFilterChange.bind(this);
   }
 
-  onFilterClick() {
-    var newFilterState = !this.state.filterOpen;
-    this.setState({
-      filterOpen: newFilterState
-    });
-  }
-
   render() {
-
+    const ageList = [];
+    data.forEach((a) => {
+      a.age = this.getAgeFromTimestamp(a.timestamp);
+      if (!ageList.includes(a.age)) {
+        ageList.push(a.age);
+      }
+    });
     let visibleData = data.sort(function(a, b){
       return (parse(b.timestamp, 'dd/MM/yyyy HH:mm', new Date())) -
               (parse(a.timestamp, 'dd/MM/yyyy HH:mm', new Date()))
@@ -41,7 +45,11 @@ class Gallery extends React.Component {
           }
         }
         return false;
-        //return item.tags.includes(this.state.filterString);
+      });
+    }
+    if(this.state.filterAge !== "") {
+      visibleData = visibleData.filter(item => {
+        return this.state.filterAge === item.age;
       });
     }
     const images = visibleData.map((item) =>
@@ -57,6 +65,7 @@ class Gallery extends React.Component {
                onFilterChange={this.onFilterChange}
                filterString={this.state.filterString}
                filterAge={this.state.filterAge}
+               filterAgeList={ageList}
                onClick={this.onFilterClick}/>
         <div className="gallery-body">
           <div className="row">
@@ -73,6 +82,27 @@ class Gallery extends React.Component {
       filterString: hashtag,
       filterAge: age
     });
+  }
+
+  onFilterClick() {
+    var newFilterState = !this.state.filterOpen;
+    this.setState({
+      filterOpen: newFilterState
+    });
+  }
+
+  getAgeFromTimestamp(timestamp) {
+    const date = parse(timestamp, 'dd/MM/yyyy HH:mm', new Date());
+    const birthday = parse('30/03/2019 00:00', 'dd/MM/yyyy HH:mm', new Date());
+    const years = differenceInYears(date, birthday);
+    const months = differenceInMonths(date, birthday);
+    const weeks = differenceInWeeks(date, birthday);
+    const totalDays = differenceInDays(date, birthday);
+    const remainderDays = totalDays - (weeks * 7);
+
+    return (months !== 0 && months !== 1) ? (months + ' months') :
+        (weeks + (weeks === 1 ? ' week ' : ' weeks ')) +
+        remainderDays + ((remainderDays === 1) ? ' day' : ' days')
   }
 }
 

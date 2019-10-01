@@ -9,7 +9,8 @@ class Filters extends React.Component {
     this.state = {
       filterOpen: this.props.filterOpen,
       hashtag: this.props.filterString,
-      age: this.props.filterAge
+      age: this.props.filterAge,
+      ageOptions: this.props.filterAgeList
     };
     this.onSearchBtnClick = this.onSearchBtnClick.bind(this);
     this.onHashtagChange = this.onHashtagChange.bind(this);
@@ -29,10 +30,12 @@ class Filters extends React.Component {
             <div className="filters-filters">
               <div className="filters-age">
                 <div>Age: </div>
-                <select onChange={this.onAgeChange}>
-                  <option></option>
-                  <option>8 weeks</option>
-                  <option>4 months</option>
+                <select selected={this.state.age}
+                        onChange={this.onAgeChange}>
+                  <option key="" label=""></option>
+                  {this.state.ageOptions.map((age) =>
+                    <option key={age} label={age}>{age}</option>
+                  )}
                 </select>
               </div>
               <div className="filters-hashtag">
@@ -63,11 +66,11 @@ class Filters extends React.Component {
   }
 
   onClearBtnClick(ev) {
-    this.props.onFilterChange("", "");
     this.setState({
       hashtag: "",
       age: ""
     });
+    this.props.onFilterChange("", "");
   }
 
   onHashtagChange(ev) {
