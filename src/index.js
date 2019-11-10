@@ -5,13 +5,17 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
+  faBars,
   faCaretRight,
-  faCaretDown
+  faCaretDown,
+  faPaw
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
+  faBars,
   faCaretDown,
-  faCaretRight
+  faCaretRight,
+  faPaw
 );
 
 ReactDOM.render(
