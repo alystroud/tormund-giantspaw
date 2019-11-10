@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, BrowserRouter as Router } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import Footer from './Footer.js';
 import Gallery from './Gallery.js';
 import Main from './Main.js';
@@ -12,8 +12,11 @@ function App() {
       <div className="App container">
         <Nav/>
         <div className="content">
-          <Route exact path="/" component={Main} />
-          <Route path="/Gallery" component={Gallery} />
+          <Switch>
+            <Route exact path="/" component={Main} />
+            <Route path="/Gallery" component={Gallery} />
+            <Route component={Main}/>
+          </Switch>
         </div>
         <Footer/>
       </div>
