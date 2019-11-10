@@ -29,20 +29,19 @@ class Nav extends React.Component {
             </div>
           </div>
         </div>
-        {this.state.open ?
-          <div className="nav-open">
-            <ul>
-              <li><Link to="/" onClick={this.onMenuClick}>
-              Tormund Giantspaw</Link></li>
-              <li><Link to="/gallery" onClick={this.onMenuClick}>
-                Gallery</Link></li>
-              <li>
-                <a href="https://www.amazon.co.uk/hz/wishlist/ls/16HRMCU7VCQO0?ref_=wl_share">
-                  Wish List
-                </a>
-              </li>
-            </ul>
-          </div> : null}
+        <div className={this.state.open ? "nav-open" : " closed"}>
+          <ul>
+            <li><Link to="/" onClick={this.onMenuClick}>
+            Tormund Giantspaw</Link></li>
+            <li><Link to="/gallery" onClick={this.onMenuClick}>
+              Gallery</Link></li>
+            <li>
+              <a href="https://www.amazon.co.uk/hz/wishlist/ls/16HRMCU7VCQO0?ref_=wl_share">
+                Wish List
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     );
   }
