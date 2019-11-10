@@ -36,6 +36,11 @@ class Nav extends React.Component {
               Tormund Giantspaw</Link></li>
               <li><Link to="/gallery" onClick={this.onMenuClick}>
                 Gallery</Link></li>
+              <li>
+                <a href="https://www.amazon.co.uk/hz/wishlist/ls/16HRMCU7VCQO0?ref_=wl_share">
+                  Wish List
+                </a>
+              </li>
             </ul>
           </div> : null}
       </div>
