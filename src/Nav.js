@@ -21,14 +21,19 @@ class Nav extends React.Component {
             <FontAwesomeIcon className="cat" icon="paw"/>
           </div>
           <div onClick={this.onMenuClick}>
-            <FontAwesomeIcon className="bars" icon="bars"/>
+            <div id="menu-icon" className={this.state.open ? "open" : ""}>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
           </div>
         </div>
         {this.state.open ?
           <div className="nav-open">
             <ul>
               <li><Link to="/" onClick={this.onMenuClick}>
-                Tormund Giantspaw</Link></li>
+              Tormund Giantspaw</Link></li>
               <li><Link to="/gallery" onClick={this.onMenuClick}>
                 Gallery</Link></li>
             </ul>
