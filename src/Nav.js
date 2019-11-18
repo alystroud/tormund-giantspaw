@@ -18,7 +18,7 @@ class Nav extends React.Component {
       <div>
         <div className="nav">
           <div>
-            <FontAwesomeIcon className="cat" icon="paw"/>
+            <a href="./index.html"><FontAwesomeIcon className="cat" icon="paw"/></a>
           </div>
           <div onClick={this.onMenuClick}>
             <div id="menu-icon" className={this.state.open ? "open" : ""}>

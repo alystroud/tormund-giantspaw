@@ -7,6 +7,7 @@
 .profile {
   height: 60vmin;
   padding-bottom: 10px;
+  margin: 10% 10% 0 0;
 }
 
 .App-header {
@@ -28,4 +29,8 @@
 .tormund-link:hover{
   color: #000;
   text-decoration: none;
+}
+
+.text {
+  margin: 20% 0 0 0;
 }
