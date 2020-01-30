@@ -40,6 +40,12 @@ class Nav extends React.Component {
                 Wish List
               </a>
             </li>
+            <li>
+              <a href="https://twitter.com/search?q=tormundgiantspaw&src=typed_query"
+                 target="_blank">
+                Twitter
+              </a>
+            </li>
           </ul>
         </div>
       </div>
