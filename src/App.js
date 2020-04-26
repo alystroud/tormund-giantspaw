@@ -1,5 +1,8 @@
 import React from 'react';
-import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+import {
+  Route,
+  BrowserRouter as Router, 
+  Switch } from 'react-router-dom';
 import Footer from './Footer.js';
 import Gallery from './Gallery.js';
 import Main from './Main.js';
@@ -8,7 +11,7 @@ import './App.css';
 
 function App() {
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router>
       <div className="App container">
         <Nav/>
         <div className="content">

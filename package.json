@@ -1,8 +1,7 @@
 {
   "name": "tormund-giantspaw",
   "version": "0.1.0",
-  "private": true,
-  "homepage": "https://alystroud.github.io/tormund-giantspaw",
+  "private": false,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
@@ -15,13 +14,16 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^2.5.1",
+    "express": "^4.17.1",
     "gh-pages": "^2.2.0",
+    "nodemon": "^2.0.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.1"
   },
   "scripts": {
+    "dev": "npm run build && nodemon server.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "predeploy": "npm run build",

@@ -22,7 +22,7 @@ class GalleryCard extends React.Component {
 
     return (
       <div className="card">
-        <img src={"/tormund-giantspaw" + this.state.path} 
+        <img src={this.state.path} 
              className="image"
              alt={this.state.caption}/>
         <div>{this.state.caption}</div>

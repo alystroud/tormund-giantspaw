@@ -57,6 +57,10 @@ li a:visited {
   margin-left: 15px;
 }
 
+.cat:hover {
+  color: white;
+}
+
 #menu-icon {
   width: 30px;
   height: 20px;
