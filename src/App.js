@@ -13,8 +13,8 @@ function App() {
         <Nav/>
         <div className="content">
           <Switch>
-            <Route exact path={process.env.PUBLIC_URL + "/"} component={Main} />
-            <Route path={process.env.PUBLIC_URL + '/gallery'} component={Gallery} />
+            <Route exact path="/" component={Main} />
+            <Route path="/gallery" component={Gallery} />
             <Route component={Main}/>
           </Switch>
         </div>
