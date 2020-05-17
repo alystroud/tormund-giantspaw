@@ -42,7 +42,7 @@ class Nav extends React.Component {
             </li>
             <li>
               <a href="https://twitter.com/search?q=tormundgiantspaw&src=typed_query"
-                 target="_blank">
+                 target="_blank" rel="noopener noreferrer">
                 Twitter
               </a>
             </li>

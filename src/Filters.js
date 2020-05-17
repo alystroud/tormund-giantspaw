@@ -3,6 +3,19 @@ import './Filters.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Filters extends React.Component {
+  static getDerivedStateFromProps(props, state) {
+    if(props.refreshKey !== state.refreshKey) {
+      console.log("Update props " + props.filterString);
+      return {
+        filterOpen: props.filterOpen,
+        hashtag: props.filterString,
+        age: props.filterAge,
+        ageOptions: props.filterAgeList,
+        refreshKey: props.refreshKey
+      };
+    }
+    return null;
+  }
 
   constructor(props){
     super(props);
@@ -10,8 +23,10 @@ class Filters extends React.Component {
       filterOpen: this.props.filterOpen,
       hashtag: this.props.filterString,
       age: this.props.filterAge,
-      ageOptions: this.props.filterAgeList
+      ageOptions: this.props.filterAgeList,
+      refreshKey: this.props.refreshKey
     };
+
     this.onSearchBtnClick = this.onSearchBtnClick.bind(this);
     this.onHashtagChange = this.onHashtagChange.bind(this);
     this.onAgeChange = this.onAgeChange.bind(this);
@@ -42,6 +57,7 @@ class Filters extends React.Component {
                 <div>Hashtag: </div>
                 <input type="text"
                        onChange={this.onHashtagChange}
+                       value={this.state.hashtag}
                        text={this.state.hashtag}/>
               </div>
             </div>

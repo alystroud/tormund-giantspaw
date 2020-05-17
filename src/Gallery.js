@@ -16,11 +16,13 @@ class Gallery extends React.Component {
     this.state = {
       filterOpen: false,
       filterString: "",
-      filterAge: ""
+      filterAge: "",
+      refreshKey: 0
     };
     this.getAgeFromTimestamp = this.getAgeFromTimestamp.bind(this);
     this.onFilterClick = this.onFilterClick.bind(this);
     this.onFilterChange = this.onFilterChange.bind(this);
+    this.onHashTagClick = this.onHashTagClick.bind(this);
   }
 
   render() {
@@ -55,7 +57,7 @@ class Gallery extends React.Component {
     const images = visibleData.map((item) =>
       <div key={item.id}
            className="gallery-card col-sm-12 col-xs-12 col-md-4 col-lg-3">
-        <GalleryCard item={item}/>
+        <GalleryCard item={item} onHashTagClick={this.onHashTagClick}/>
       </div>
     );
 
@@ -66,6 +68,7 @@ class Gallery extends React.Component {
                filterString={this.state.filterString}
                filterAge={this.state.filterAge}
                filterAgeList={ageList}
+               refreshKey={this.state.refreshKey}
                onClick={this.onFilterClick}/>
         <div className="gallery-body">
           <div className="row">
@@ -78,9 +81,11 @@ class Gallery extends React.Component {
   }
 
   onFilterChange(hashtag, age) {
+    const key = this.state.refreshKey;
     this.setState({
       filterString: hashtag,
-      filterAge: age
+      filterAge: age,
+      refreshKey: key + 1
     });
   }
 
@@ -88,6 +93,14 @@ class Gallery extends React.Component {
     var newFilterState = !this.state.filterOpen;
     this.setState({
       filterOpen: newFilterState
+    });
+  }
+
+  onHashTagClick(hashtag) {
+    const key = this.state.refreshKey;
+    this.setState({
+      filterString: hashtag,
+      refreshKey: key + 1
     });
   }
 

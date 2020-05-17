@@ -16,13 +16,13 @@ class GalleryCard extends React.Component {
   render() {
     const tags = (this.state.tags).map((tag) =>
       <div key={tag} className="gallery-tag">
-        <a href="#">{'#' + tag + '  '}</a>
+        <a href="#" onClick={() => this.onTagClick(tag)}>{'#' + tag + '  '}</a>
       </div>
     );
 
     return (
       <div className="card">
-        <img src={this.state.path} 
+        <img src={this.state.path}
              className="image"
              alt={this.state.caption}/>
         <div>{this.state.caption}</div>
@@ -30,6 +30,10 @@ class GalleryCard extends React.Component {
         <div>{this.state.age}</div>
       </div>
     );
+  }
+
+  onTagClick(tag) {
+    this.props.onHashTagClick(tag);
   }
 }
 
