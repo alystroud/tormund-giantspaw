@@ -113,9 +113,11 @@ class Gallery extends React.Component {
     const totalDays = differenceInDays(date, birthday);
     const remainderDays = totalDays - (weeks * 7);
 
-    return (months !== 0 && months !== 1) ? (months + ' months') :
+    //// TODO: Refactor this into a if/else statement because this is ugly.
+    return (years !== 0)? (years + ' years') :
+        ((months !== 0 && months !== 1) ? (months + ' months') :
         (weeks + (weeks === 1 ? ' week ' : ' weeks ')) +
-        remainderDays + ((remainderDays === 1) ? ' day' : ' days')
+        remainderDays + ((remainderDays === 1) ? ' day' : ' days'))
   }
 }
 
