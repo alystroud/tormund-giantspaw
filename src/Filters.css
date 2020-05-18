@@ -46,13 +46,19 @@
   padding-bottom: 5px;
 }
 
+.filters-filters {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .filters-age {
   display: flex;
   flex-direction: row;
   margin-left: 5%;
 }
 
-.filters-age select {
+.filters-filters select {
   margin-left: 5px;
 }
 
@@ -69,6 +75,19 @@
   margin-left: 5px;
 }
 
+.filters-sort {
+  display: flex;
+  flex-direction: row;
+  margin-left: 5%;
+  margin-top: 10px;
+}
+
+.filters-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
 .filters-buttons {
   margin-left: 70px;
   margin-top: 10px;
@@ -76,4 +95,9 @@
 
 .filters-buttons button {
   margin-right: 5px;
+  border-radius: 10px;
+  padding: 5px 10px;
+  border: none;
+  background-color: #f4511e;
+  color: #000000;
 }

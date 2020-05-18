@@ -17,6 +17,7 @@ class Gallery extends React.Component {
       filterOpen: false,
       filterString: "",
       filterAge: "",
+      sortOrder: "Descending",
       refreshKey: 0
     };
     this.getAgeFromTimestamp = this.getAgeFromTimestamp.bind(this);
@@ -26,10 +27,19 @@ class Gallery extends React.Component {
   }
 
   render() {
-    let visibleData = data.sort(function(a, b){
-      return (parse(b.timestamp, 'dd/MM/yyyy HH:mm', new Date())) -
-              (parse(a.timestamp, 'dd/MM/yyyy HH:mm', new Date()))
-    });
+    let visibleData = []
+
+    if(this.state.sortOrder === "Descending") {
+      visibleData = data.sort(function(a, b){
+        return (parse(b.timestamp, 'dd/MM/yyyy HH:mm', new Date())) -
+        (parse(a.timestamp, 'dd/MM/yyyy HH:mm', new Date()))
+      });
+    } else {
+      visibleData = data.sort(function(a, b){
+        return (parse(a.timestamp, 'dd/MM/yyyy HH:mm', new Date())) -
+        (parse(b.timestamp, 'dd/MM/yyyy HH:mm', new Date()))
+      });
+    }
 
     if(this.state.filterString !== "") {
       visibleData = visibleData.filter(item => {
@@ -68,6 +78,7 @@ class Gallery extends React.Component {
                filterString={this.state.filterString}
                filterAge={this.state.filterAge}
                filterAgeList={ageList}
+               sortOrder={this.state.sortOrder}
                refreshKey={this.state.refreshKey}
                onClick={this.onFilterClick}/>
         <div className="gallery-body">
@@ -80,11 +91,12 @@ class Gallery extends React.Component {
     );
   }
 
-  onFilterChange(hashtag, age) {
+  onFilterChange(hashtag, age, sortOrder) {
     const key = this.state.refreshKey;
     this.setState({
       filterString: hashtag,
       filterAge: age,
+      sortOrder: sortOrder,
       refreshKey: key + 1
     });
   }
@@ -114,10 +126,15 @@ class Gallery extends React.Component {
     const remainderDays = totalDays - (weeks * 7);
 
     //// TODO: Refactor this into a if/else statement because this is ugly.
-    return (years !== 0)? (years + ' years') :
-        ((months !== 0 && months !== 1) ? (months + ' months') :
-        (weeks + (weeks === 1 ? ' week ' : ' weeks ')) +
-        remainderDays + ((remainderDays === 1) ? ' day' : ' days'))
+    if(years > 1) {
+      return years + " years";
+    } else if (years == 1) {
+      return years + " year";
+    } else if (months !== 0 && months !== 1) {
+      return months + " months";
+    } else {
+      return weeks + (weeks === 1 ? ' week ' : ' weeks ');
+    }
   }
 }
 

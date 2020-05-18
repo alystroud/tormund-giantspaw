@@ -11,6 +11,7 @@ class Filters extends React.Component {
         hashtag: props.filterString,
         age: props.filterAge,
         ageOptions: props.filterAgeList,
+        sortOrder: props.sortOrder,
         refreshKey: props.refreshKey
       };
     }
@@ -23,6 +24,7 @@ class Filters extends React.Component {
       filterOpen: this.props.filterOpen,
       hashtag: this.props.filterString,
       age: this.props.filterAge,
+      sortOrder: this.props.sortOrder,
       ageOptions: this.props.filterAgeList,
       refreshKey: this.props.refreshKey
     };
@@ -31,6 +33,7 @@ class Filters extends React.Component {
     this.onHashtagChange = this.onHashtagChange.bind(this);
     this.onAgeChange = this.onAgeChange.bind(this);
     this.onClearBtnClick = this.onClearBtnClick.bind(this);
+    this.onSortOrderChange = this.onSortOrderChange.bind(this);
   }
 
   render() {
@@ -43,29 +46,41 @@ class Filters extends React.Component {
               <div>Filters</div>
             </div>
             <div className="filters-filters">
-              <div className="filters-age">
-                <div>Age: </div>
-                <select value={this.state.age}
-                        onChange={this.onAgeChange}>
-                  <option key="" label=""></option>
-                  {this.state.ageOptions.map((age) =>
-                    <option key={age} label={age}>{age}</option>
-                  )}
-                </select>
+              <div className="filters-left">
+                <div className="filters-age">
+                  <div>Age: </div>
+                  <select value={this.state.age}
+                          onChange={this.onAgeChange}>
+                    <option key="" label=""></option>
+                    {this.state.ageOptions.map((age) =>
+                      <option key={age} label={age}>{age}</option>
+                    )}
+                  </select>
+                </div>
+                <div className="filters-hashtag">
+                  <div>Hashtag: </div>
+                  <input type="text"
+                         onChange={this.onHashtagChange}
+                         value={this.state.hashtag}
+                         text={this.state.hashtag}/>
+                </div>
+                <div className="filters-sort">
+                  <div>Sort: </div>
+                  <select value={this.state.sortOrder}
+                          onChange={this.onSortOrderChange}>
+                    <option key="Ascending" label="Ascending">Ascending</option>
+                    <option key="Descending" label="Descending">Descending</option>
+                  </select>
+                </div>
               </div>
-              <div className="filters-hashtag">
-                <div>Hashtag: </div>
-                <input type="text"
-                       onChange={this.onHashtagChange}
-                       value={this.state.hashtag}
-                       text={this.state.hashtag}/>
+              <div className="filters-right">
+                <div className="filters-buttons">
+                  <button type="button"
+                          onClick={this.onClearBtnClick}>Clear All</button>
+                  <button type="button"
+                          onClick={this.onSearchBtnClick}>Search</button>
+                </div>
               </div>
-            </div>
-            <div className="filters-buttons">
-              <button type="button"
-                      onClick={this.onClearBtnClick}>Clear All</button>
-              <button type="button"
-                      onClick={this.onSearchBtnClick}>Search</button>
             </div>
           </div> :
           <div className="filters-closed" onClick={this.props.onClick}>
@@ -78,11 +93,11 @@ class Filters extends React.Component {
   }
 
   onSearchBtnClick(ev) {
-    this.props.onFilterChange(this.state.hashtag, this.state.age);
+    this.props.onFilterChange(this.state.hashtag, this.state.age, this.state.sortOrder);
   }
 
   onClearBtnClick(ev) {
-    this.props.onFilterChange("", "");
+    this.props.onFilterChange("", "", "Descending");
   }
 
   onHashtagChange(ev) {
@@ -94,6 +109,12 @@ class Filters extends React.Component {
   onAgeChange(ev) {
     this.setState({
       age: ev.target.value
+    });
+  }
+
+  onSortOrderChange(ev) {
+    this.setState({
+      sortOrder: ev.target.value
     });
   }
 }
