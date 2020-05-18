@@ -131,11 +131,21 @@
   {
     "id": 14,
     "caption": "Squirrel",
-    "fileName": "/images/20200515_135724-1.jpg",
+    "fileName": "/images/20200515_135724.jpg",
     "timestamp": "15/05/2020 13:57",
     "tags": [
       "sleeping",
       "big tail"
+    ]
+  },
+  {
+    "id": 15,
+    "caption": "Ooh, what's that?!",
+    "fileName": "/images/20191209_133324.jpg",
+    "timestamp": "09/12/2019 13:33",
+    "tags": [
+      "car",
+      "big boy"
     ]
   }
 ]
